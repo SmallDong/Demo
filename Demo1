@@ -1,1 +1,32 @@
-sdfasefdfe
+
+--任宇航 201312104026
+create database StudentTable
+go
+use
+StudentTable
+go 
+
+create table student
+(
+Sno int primary key identity(20131210,1),
+Sname char(10) not null,
+Ssex char(2) default('男') check(Ssex='男' or Ssex='女')
+
+)
+create table Class
+(
+Clno int primary key,
+Clname char(50) not null
+)
+create table grade
+(
+grade int check(grade>0 and grade<=100),
+Clno int foreign key references Class(Clno),
+Sno int foreign key references Student(Sno),
+primary key(Sno,Clno),
+) 
+
+
+
+
+
